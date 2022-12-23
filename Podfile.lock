@@ -1,0 +1,49 @@
+PODS:
+  - Alamofire (5.6.2)
+  - AppAuth (1.6.0):
+    - AppAuth/Core (= 1.6.0)
+    - AppAuth/ExternalUserAgent (= 1.6.0)
+  - AppAuth/Core (1.6.0)
+  - AppAuth/ExternalUserAgent (1.6.0):
+    - AppAuth/Core
+  - CocoaLumberjack (3.8.0):
+    - CocoaLumberjack/Core (= 3.8.0)
+  - CocoaLumberjack/Core (3.8.0)
+  - JWTDecode (3.0.0)
+  - Reachability (3.2)
+  - SDWebImage (5.14.0):
+    - SDWebImage/Core (= 5.14.0)
+  - SDWebImage/Core (5.14.0)
+  - SVGKit (3.0.0):
+    - CocoaLumberjack (~> 3.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - AppAuth
+  - JWTDecode
+  - Reachability (~> 3.2)
+  - SDWebImage
+  - SVGKit
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - AppAuth
+    - CocoaLumberjack
+    - JWTDecode
+    - Reachability
+    - SDWebImage
+    - SVGKit
+
+SPEC CHECKSUMS:
+  Alamofire: d368e1ff8a298e6dde360e35a3e68e6c610e7204
+  AppAuth: 8fca6b5563a5baef2c04bee27538025e4ceb2add
+  CocoaLumberjack: 78abfb691154e2a9df8ded4350d504ee19d90732
+  JWTDecode: 82480a7173f8a811954e7e14a2b59f688ca4222a
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+  SDWebImage: 9e391cf38577742f501055dca17e4987f6713fe1
+  SVGKit: 1ad7513f8c74d9652f94ed64ddecda1a23864dea
+
+PODFILE CHECKSUM: b7be2eb913e1d2d734b09a4d43adfa07379b7488
+
+COCOAPODS: 1.11.3

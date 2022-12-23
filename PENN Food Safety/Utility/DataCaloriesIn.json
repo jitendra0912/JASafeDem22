@@ -1,0 +1,349 @@
+{
+  "IsSuccess": true,
+  "ReturnMessage": "Data fetched successfully",
+  "Data": {
+    "added": false,
+    "address": 1,
+    "child": {
+      "unit_id": "dr-ch-eb7565f6-b10c-5b27-8e7f-82b9c02fa2b3-C",
+      "address": 1,
+      "child": null,
+      "controllable": false,
+      "dashboard_display": false,
+      "description": "Backup Chiller 01 Door",
+      "gateway": {
+        "city": "",
+        "country_name": "",
+        "gateway_id": "36GA0T6EW95AY2",
+        "ip": "",
+        "premises": {
+          "id": 2979,
+          "company": 7,
+          "extended_Address": "",
+          "locality": "",
+          "name": "Supermarket",
+          "postal_code": null,
+          "region": {
+            "country": "United Kingdom",
+            "name": "London",
+            "resource_uri": "/console/api/v2/region/62/"
+          },
+          "street_address": "Seventh Street",
+          "resource_uri": "/console/api/v2/premises/Supermarket/",
+          "slug": "supermarket"
+        },
+        "region_name": "",
+        "estimate": false,
+        "interval": null,
+        "resource_uri": "/console/api/v2/gateway/36GA0T6EW95AY2/"
+      },
+      "imei": "",
+      "sensors": [
+        {
+          "key": "111",
+          "sensor_description": "Door",
+          "enabled": true,
+          "offset": 0.0,
+          "unit_id": "dr-ch-eb7565f6-b10c-5b27-8e7f-82b9c02fa2b3-C",
+          "category": "door",
+          "resource_uri": "/console/api/v2/unitconfiguration/120226/",
+          "unit_of_measurement": {
+            "um_full": "Binary",
+            "um_abbreviated": "0",
+            "um_index": "Bin",
+            "um_variable": "On/Off",
+            "key": "0",
+            "id": 6
+          },
+          "visible": true,
+          "id": 120226,
+          "staleness_period": 3600,
+          "report_interval": 300,
+          "min_temp": null,
+          "max_temp": null,
+          "warning_delay_min": 0,
+          "warning_delay_max": 0,
+          "alarm_delay_min": 0,
+          "alarm_delay_max": 0,
+          "alarm_recovery_period_min": 0,
+          "alarm_recovery_period_max": 0,
+          "auto_clear": true
+        }
+      ],
+      "model": "/console/api/v1/model/ZETO_DOOR_SENSOR/",
+      "standalone": false,
+      "subscribed": false,
+      "unit_offline": false,
+      "uncleared_alarms": 1,
+      "resource_uri": "/console/api/v2/unit/dr-ch-eb7565f6-b10c-5b27-8e7f-82b9c02fa2b3-C/",
+      "added": false,
+      "timeout": 900,
+      "plot": null,
+      "tags": [
+
+      ],
+      "makemodel": null,
+      "subscribers": [
+        1755,
+        1834
+      ],
+      "enabled": true
+    },
+    "controllable": false,
+    "dashboard_display": false,
+    "description": "Backup Chiller 01",
+    "enabled": true,
+    "imei": "",
+    "model": "/console/api/v1/model/ZETO_2/",
+    "resource_uri": "/console/api/v2/unit/ch-eb7565f6-b10c-5b27-8e7f-82b9c02fa2b3/",
+    "sensors": [
+      {
+        "alarm_delay_max": 0,
+        "alarm_delay_min": 0,
+        "alarm_recovery_period_max": 0,
+        "alarm_recovery_period_min": 0,
+        "auto_clear": true,
+        "enabled": true,
+        "id": 120227,
+        "key": "111",
+        "offset": "0.0",
+        "report_interval": 300,
+        "resource_uri": "/console/api/v2/unitconfiguration/120227/",
+        "sensor_description": "Air Temp",
+        "staleness_period": 3600,
+        "unit_id": "ch-eb7565f6-b10c-5b27-8e7f-82b9c02fa2b3",
+        "unit_of_measurement": {
+          "id": 4,
+          "um_abbreviated": "°C",
+          "um_full": "Celsius",
+          "um_index": "C",
+          "um_variable": "Temperature"
+        },
+        "visible": true,
+        "warning_delay_max": "0",
+        "warning_delay_min": "0"
+      }
+    ],
+    "standalone": true,
+    "subscribed": false,
+    "subscribers": [
+      1755,
+      1834
+    ],
+    "tags": [
+
+    ],
+    "timeout": 900,
+    "uncleared_alarms": 1,
+    "unit_id": "ch-eb7565f6-b10c-5b27-8e7f-82b9c02fa2b3",
+    "unit_offline": false,
+    "gateway": {
+      "city": "",
+      "country_name": "",
+      "estimate": false,
+      "gateway_id": "36GA0T6EW95AY2",
+      "ip": "",
+      "region_name": "",
+      "premises": {
+        "id": 2979,
+        "company": 7,
+        "extended_Address": "",
+        "locality": "",
+        "name": "Supermarket",
+        "street_address": "Seventh Street",
+        "resource_uri": "/console/api/v2/premises/Supermarket/",
+        "slug": "supermarket",
+        "region": {
+          "country": "United Kingdom",
+          "name": "London",
+          "resource_uri": "/console/api/v2/region/62/"
+        }
+      }
+    },
+    "unitGraphValues": {
+      "objects": [
+        {
+          "readings": {
+            "111": 1.7
+          },
+          "unit": "ch-eb7565f6-b10c-5b27-8e7f-82b9c02fa2b3",
+          "offset": 0.0,
+          "gateway": "36GA0T6EW95AY2",
+          "id": "ch-eb7565f6-b10c-5b27-8e7f-82b9c02fa2b3-111",
+          "gain": 1,
+          "datetime": "2022-11-11T10:55:19",
+          "timestamp": 1668164119,
+          "localized_readings": {
+            "111": "1.7"
+          }
+        },
+        {
+          "readings": {
+            "111": 2.0
+          },
+          "unit": "ch-eb7565f6-b10c-5b27-8e7f-82b9c02fa2b3",
+          "offset": 0.0,
+          "gateway": "36GA0T6EW95AY2",
+          "id": "ch-eb7565f6-b10c-5b27-8e7f-82b9c02fa2b3-111",
+          "gain": 1,
+          "datetime": "2022-11-11T10:50:19",
+          "timestamp": 1668163819,
+          "localized_readings": {
+            "111": "2"
+          }
+        },
+        {
+          "readings": {
+            "111": 2.7
+          },
+          "unit": "ch-eb7565f6-b10c-5b27-8e7f-82b9c02fa2b3",
+          "offset": 0.0,
+          "gateway": "36GA0T6EW95AY2",
+          "id": "ch-eb7565f6-b10c-5b27-8e7f-82b9c02fa2b3-111",
+          "gain": 1,
+          "datetime": "2022-11-11T10:45:19",
+          "timestamp": 1668163519,
+          "localized_readings": {
+            "111": "2.7"
+          }
+        },
+        {
+          "readings": {
+            "111": 0.9
+          },
+          "unit": "ch-eb7565f6-b10c-5b27-8e7f-82b9c02fa2b3",
+          "offset": 0.0,
+          "gateway": "36GA0T6EW95AY2",
+          "id": "ch-eb7565f6-b10c-5b27-8e7f-82b9c02fa2b3-111",
+          "gain": 1,
+          "datetime": "2022-11-11T09:55:19",
+          "timestamp": 1668160519,
+          "localized_readings": {
+            "111": "0.9"
+          }
+        },
+        {
+          "readings": {
+            "111": 1.4
+          },
+          "unit": "ch-eb7565f6-b10c-5b27-8e7f-82b9c02fa2b3",
+          "offset": 0.0,
+          "gateway": "36GA0T6EW95AY2",
+          "id": "ch-eb7565f6-b10c-5b27-8e7f-82b9c02fa2b3-111",
+          "gain": 1,
+          "datetime": "2022-11-11T09:50:19",
+          "timestamp": 1668160219,
+          "localized_readings": {
+            "111": "1.4"
+          }
+        },
+        {
+          "readings": {
+            "111": 3.3
+          },
+          "unit": "ch-eb7565f6-b10c-5b27-8e7f-82b9c02fa2b3",
+          "offset": 0.0,
+          "gateway": "36GA0T6EW95AY2",
+          "id": "ch-eb7565f6-b10c-5b27-8e7f-82b9c02fa2b3-111",
+          "gain": 1,
+          "datetime": "2022-11-11T09:45:19",
+          "timestamp": 1668159919,
+          "localized_readings": {
+            "111": "3.3"
+          }
+        },
+        {
+          "readings": {
+            "111": -1.3
+          },
+          "unit": "ch-eb7565f6-b10c-5b27-8e7f-82b9c02fa2b3",
+          "offset": 0.0,
+          "gateway": "36GA0T6EW95AY2",
+          "id": "ch-eb7565f6-b10c-5b27-8e7f-82b9c02fa2b3-111",
+          "gain": 1,
+          "datetime": "2022-11-11T08:55:18",
+          "timestamp": 1668156918,
+          "localized_readings": {
+            "111": "-1.3"
+          }
+        },
+        {
+          "readings": {
+            "111": -1.2
+          },
+          "unit": "ch-eb7565f6-b10c-5b27-8e7f-82b9c02fa2b3",
+          "offset": 0.0,
+          "gateway": "36GA0T6EW95AY2",
+          "id": "ch-eb7565f6-b10c-5b27-8e7f-82b9c02fa2b3-111",
+          "gain": 1,
+          "datetime": "2022-11-11T08:50:18",
+          "timestamp": 1668156618,
+          "localized_readings": {
+            "111": "-1.2"
+          }
+        },
+        {
+          "readings": {
+            "111": -1.1
+          },
+          "unit": "ch-eb7565f6-b10c-5b27-8e7f-82b9c02fa2b3",
+          "offset": 0.0,
+          "gateway": "36GA0T6EW95AY2",
+          "id": "ch-eb7565f6-b10c-5b27-8e7f-82b9c02fa2b3-111",
+          "gain": 1,
+          "datetime": "2022-11-11T08:45:18",
+          "timestamp": 1668156318,
+          "localized_readings": {
+            "111": "-1.1"
+          }
+        },
+        {
+          "readings": {
+            "111": 0.3
+          },
+          "unit": "ch-eb7565f6-b10c-5b27-8e7f-82b9c02fa2b3",
+          "offset": 0.0,
+          "gateway": "36GA0T6EW95AY2",
+          "id": "ch-eb7565f6-b10c-5b27-8e7f-82b9c02fa2b3-111",
+          "gain": 1,
+          "datetime": "2022-11-11T07:55:24",
+          "timestamp": 1668153324,
+          "localized_readings": {
+            "111": "0.3"
+          }
+        },
+        {
+          "readings": {
+            "111": 0.8
+          },
+          "unit": "ch-eb7565f6-b10c-5b27-8e7f-82b9c02fa2b3",
+          "offset": 0.0,
+          "gateway": "36GA0T6EW95AY2",
+          "id": "ch-eb7565f6-b10c-5b27-8e7f-82b9c02fa2b3-111",
+          "gain": 1,
+          "datetime": "2022-11-11T07:50:24",
+          "timestamp": 1668153024,
+          "localized_readings": {
+            "111": "0.8"
+          }
+        },
+        {
+          "readings": {
+            "111": 1.9
+          },
+          "unit": "ch-eb7565f6-b10c-5b27-8e7f-82b9c02fa2b3",
+          "offset": 0.0,
+          "gateway": "36GA0T6EW95AY2",
+          "id": "ch-eb7565f6-b10c-5b27-8e7f-82b9c02fa2b3-111",
+          "gain": 1,
+          "datetime": "2022-11-11T07:45:24",
+          "timestamp": 1668152724,
+          "localized_readings": {
+            "111": "1.9"
+          }
+        }
+      ],
+      "count": 12
+    }
+  }
+}
