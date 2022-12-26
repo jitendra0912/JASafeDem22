@@ -121,6 +121,10 @@ extension SideMenuViewController: UITableViewDataSource {
         
         else {
             let commVC = FSConstants.Storyboard.mainStoryboard.instantiateViewController(withIdentifier: String(describing: CommanViewController.self)) as! CommanViewController
+            
+            let objSideMenu = self.slideMenu[indexPath.row] 
+            commVC.titleName = objSideMenu.title
+            
             NavigationHelper.helper.contentNavController!.pushViewController(commVC, animated: true)
 
             // push comman vc

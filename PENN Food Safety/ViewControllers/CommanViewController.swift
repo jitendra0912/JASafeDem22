@@ -9,9 +9,10 @@ import UIKit
 
 class CommanViewController: BaseViewController {
 
+    var titleName: String?
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setNavigationTitle("Comman View controller")
+        self.setNavigationTitle(titleName ?? "Comman View controller")
 
         // Do any additional setup after loading the view.
     }
