@@ -18,7 +18,8 @@ class SideMenuViewController: UIViewController {
     @IBOutlet var sideMenuTableView: UITableView!
     @IBOutlet var footerLabel: UILabel!
     var viewControllerClass: AnyClass!
-    var model: MenuViewModel?
+    var slideMenu =  [SideMenuModel]()
+   // var model: MenuViewModel?
     var delegate: SideMenuViewControllerDelegate?
     var defaultHighlightedCell: Int = 0
     
@@ -28,9 +29,8 @@ class SideMenuViewController: UIViewController {
         super.viewDidLoad()
         callModuleAPI()
         
-        let arrMenu = FSHelper.share.loadSlideMenu(forResource: "FSMenu")
-        model  = MenuViewModel(arrMenu: arrMenu! as [AnyObject])
-        
+//        let arrMenu = FSHelper.share.loadSlideMenu(forResource: "FSMenu")
+//        model  = MenuViewModel(arrMenu: arrMenu! as [AnyObject])
         
         // TableView
         self.sideMenuTableView.delegate = self
@@ -69,6 +69,7 @@ class SideMenuViewController: UIViewController {
                     self.moduleLogViewModel = (moduleData.moduleList.map({ModuleLogViewModel(moduleModel: $0)}))
                     DispatchQueue.main.async {
                         LoadingView.hide()
+                        self.makeSlideMenu()
                         self.sideMenuTableView.reloadData()
                     }
                 }
@@ -81,11 +82,6 @@ class SideMenuViewController: UIViewController {
 
 extension SideMenuViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0 {
-            return 50
-        } else if indexPath.section == 1 {
-            return 50
-        }
         return 50
     }
 }
@@ -93,60 +89,44 @@ extension SideMenuViewController: UITableViewDelegate {
 // MARK: - UITableViewDataSource
 
 extension SideMenuViewController: UITableViewDataSource {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
-    }
+
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let menu  = model?.slideMenu else {
-            return 0
+        return self.slideMenu.count
         }
-        if section == 0 {
-            return 1
-        } else if section == 1 {
-            return moduleLogViewModel.count
-        }else{
-            return menu.count
-        }
-    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SideMenuCell.identifier, for: indexPath) as? SideMenuCell else { fatalError("xib doesn't exist") }
-               
-        if indexPath.section == 0 {
-            cell.titleLabel.text = "DashBoard"
-            cell.iconImageView.image = UIImage(named: "HomeIcon")
-            return cell
-        }else if indexPath.section == 1 {
-            let cabinetViewModel = self.moduleLogViewModel[indexPath.row]
-            cell.moduleLogViewModel =  cabinetViewModel
-            return cell
-        }else  {
-            let obj = (model?.slideMenu[indexPath.row]) as SideMenuModel?
-            cell.setupSlideMenu(model: obj!)
-            return cell
-        }
-        
+        let obj = (slideMenu[indexPath.row]) as SideMenuModel?
+        cell.setupSlideMenu(model: obj!)
+        return cell
+
     }
     
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.delegate?.selectedCell(indexPath.row)
-        guard let seletedMenuItem =  model?.slideMenu[indexPath.row] else {
-            return
-        }
+        let obj = (slideMenu[indexPath.row]) as SideMenuModel?
         NavigationHelper.helper.openSidePanel(!NavigationHelper.helper.isOpen)
-               if let controller =  NSClassFromString(SWIFT_CLASS_STRING(seletedMenuItem.controller) ?? "") {
-        
-                    if !NavigationHelper.helper.currentViewController!.isKind(of: controller) {
-        
-                        self.navigateToViewController(FSConstants.Storyboard.mainStoryboard.instantiateViewController(withIdentifier: String(describing: controller)))
-        
-                    }
-        
+        if let controller =  NSClassFromString(SWIFT_CLASS_STRING(obj?.controller ?? "") ?? "") {
+
+                if !NavigationHelper.helper.currentViewController!.isKind(of: controller) {
+
+                    self.navigateToViewController(FSConstants.Storyboard.mainStoryboard.instantiateViewController(withIdentifier: String(describing: controller)))
+
                 }
+
+            }
+        
+        else {
+            let commVC = FSConstants.Storyboard.mainStoryboard.instantiateViewController(withIdentifier: String(describing: CommanViewController.self)) as! CommanViewController
+            NavigationHelper.helper.contentNavController!.pushViewController(commVC, animated: true)
+
+            // push comman vc
+        }
+        
+        
     }
 }
 extension SideMenuViewController {
@@ -169,6 +149,23 @@ extension SideMenuViewController {
         else if (viewController.isKind(of: NotificationViewController.self)) {
             let notVC = FSConstants.Storyboard.mainStoryboard.instantiateViewController(withIdentifier: String(describing: NotificationViewController.self)) as! NotificationViewController
             NavigationHelper.helper.contentNavController!.pushViewController(notVC, animated: true)
+        }
+    }
+    
+    private func makeSlideMenu() {
+        let menuDashBoard =  SideMenuModel(icon: "HomeIcon", title: "Dashboard", storyboard:"Main", controller: "HomeViewController")
+        slideMenu.append(menuDashBoard)
+        /// Dynamic Mneu
+        for item in self.moduleLogViewModel {
+            let dyObjct =  SideMenuModel(icon: item.moduleLogo!, title: item.moduleName!, storyboard: "Main", controller: "commanController")
+            slideMenu.append(dyObjct)
+        }
+        (FSHelper.share.loadSlideMenu(forResource: "FSMenu") as? [AnyObject])!.enumerated().forEach { (index, element) in
+            if index >= 1 {
+                let obj1 =  SideMenuModel(icon: element["IconeImage"] as? String ?? "", title: element["name"] as? String ?? "", storyboard: element["storyboard"] as? String ?? "", controller: element["Controller"] as? String ?? "")
+                slideMenu.append(obj1)
+            }
+            
         }
     }
 }

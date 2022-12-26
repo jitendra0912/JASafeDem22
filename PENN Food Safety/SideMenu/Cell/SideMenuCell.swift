@@ -29,24 +29,17 @@ class SideMenuCell: UITableViewCell {
     }
     
     func setupSlideMenu(model:SideMenuModel) {
-        iconImageView.image =  UIImage(named: model.icon)
+        
+        if (model.icon!.isStringBase64()) {
+            iconImageView.image =  UIImage(named: model.icon!)
+            
+        } else {
+          if let imagData =  model.icon {
+            let mySVGImage: SVGKImage = SVGKImage(contentsOf: URL(string: imagData))
+            iconImageView.image = mySVGImage.uiImage
+            }
+        }
         titleLabel.text = model.title
     }
-    
-    var moduleLogViewModel: ModuleLogViewModel! {
-        didSet {
-            self.titleLabel.text = moduleLogViewModel.moduleName
-        
-            if let urlString = moduleLogViewModel.moduleLogo {
-                let mySVGImage: SVGKImage = SVGKImage(contentsOf: URL(string: urlString))
-                iconImageView.image = mySVGImage.uiImage
-
-
-            }
-        
-        }
-    
-}
-    
 }
 

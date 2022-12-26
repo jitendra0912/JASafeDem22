@@ -8,7 +8,7 @@
 import UIKit
 
 struct SideMenuModel {
-    var icon: String
+    var icon: String?
     var title: String
     var storyboard: String
     var controller: String

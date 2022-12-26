@@ -16,7 +16,7 @@ class NavigationHelper: NSObject {
     }
     var navController: UINavigationController!
     var headerViewController: HeaderViewController?
-    
+    var blurLayer: UIView?
     var contentNavController: ContentNavigationViewController?
     var mainContainerViewController: MainViewController?
     var menuView = UIView()
@@ -34,20 +34,27 @@ class NavigationHelper: NSObject {
     }
 }
 extension NavigationHelper {
-    func setUpSideMenu(_ view: UIView, mainContainer:UIView, menuWidth: CGFloat) {
+    func setUpSideMenu(_ view: UIView, mainContainer:UIView, menuWidth: CGFloat,blarView:UIView ) {
+        
         menuView = view
         mainView = mainContainer
         self.menuWidth = menuWidth
+        blurLayer = blarView
+        blurLayer?.backgroundColor = UIColor.black
         view.translatesAutoresizingMaskIntoConstraints = true
         view.frame = CGRect(x: -(self.menuView.bounds.width), y: 64, width: self.menuView.bounds.width, height: UIScreen.main.bounds.height - 64)
-        mainView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action:  #selector(self.panDidMoved(_:))))
+       // mainView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action:  #selector(self.panDidMoved(_:))))
+        blurLayer?.addGestureRecognizer(UITapGestureRecognizer(target: self, action:  #selector(self.panDidMoved(_:))))
     }
     func openSidePanel(_ open: Bool) {
+        
+       NavigationHelper.helper.mainContainerViewController?.view.bringSubviewToFront(blurLayer!)
         NavigationHelper.helper.mainContainerViewController?.view.bringSubviewToFront(menuView)
         if open {
             
             UIView.animate(withDuration: 0.3, animations: {
                self.menuView.frame = CGRect(x: 0, y: 64, width: self.menuView.bounds.width, height: self.menuView.bounds.height)
+                self.blurLayer?.alpha = 0.6
                 }, completion: { (completed) in
                 if self.didOpen != nil && !self.isOpen {
                     self.didOpen!(true)
@@ -58,6 +65,7 @@ extension NavigationHelper {
 
             UIView.animate(withDuration: 0.3, animations: {
                 self.menuView.frame = CGRect(x: -(self.menuView.bounds.width), y: 64, width: self.menuView.bounds.width, height: self.menuView.bounds.height)
+                self.blurLayer?.alpha = 0
                 }, completion: { (completed) in
                 if self.didOpen != nil && self.isOpen {
                     self.didOpen!(false)

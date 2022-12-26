@@ -17,6 +17,7 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var headerViewContainer: UIView!
     
+    @IBOutlet weak var blurView: UIView!
     private var sideMenuShadowView: UIView!
     var model: FSStartViewModel?
     private var sideMenuRevealWidth: CGFloat = 260
@@ -38,7 +39,8 @@ class MainViewController: UIViewController {
         
         NavigationHelper.helper.mainContainerViewController = self
 //        NavigationHelper.helper.setUpSideMenu(menuViewContainer, menuWidth: self.view.bounds.width)
-        NavigationHelper.helper.setUpSideMenu(menuViewContainer, mainContainer: mainViewContainer, menuWidth: self.view.bounds.width)
+       // NavigationHelper.helper.setUpSideMenu(menuViewContainer, mainContainer: mainViewContainer, menuWidth: self.view.bounds.width)
+        NavigationHelper.helper.setUpSideMenu(menuViewContainer, mainContainer: mainViewContainer, menuWidth: self.view.bounds.width,blarView: blurView)
     }
 }
         

@@ -16,8 +16,30 @@ extension String {
         }
         return nil
     }
+
+    func isStringBase64() -> Bool {
+            guard Data(base64Encoded: self) != nil else {
+                return false
+            }
+            return true
+        }
+    
+    func matches(for regex: String) -> [String] {
+            do {
+                let regex = try NSRegularExpression(pattern: regex)
+                let results = regex.matches(in: self, range:  NSRange(self.startIndex..., in: self))
+                return results.map {
+                    //self.substring(with: Range($0.range, in: self)!)
+                    String(self[Range($0.range, in: self)!])
+                }
+            } catch let error {
+                print("invalid regex: \(error.localizedDescription)")
+                return []
+            }
+        }
+    }
    
-}
+
 
 extension UINavigationController
 {
@@ -99,4 +121,23 @@ extension Date {
 //    }
     
    
+}
+
+extension UIImage {
+
+    /*
+     @brief decode image base64
+     */
+    static func decodeBase64(toImage strEncodeData: String!) -> UIImage {
+
+        if let decData = Data(base64Encoded: strEncodeData, options: .ignoreUnknownCharacters), strEncodeData.count > 0 {
+            return UIImage(data: decData)!
+        }
+        return UIImage()
+    }
+}
+extension UIView {
+    class func fromNib<T: UIView>() -> T {
+        return Bundle(for: T.self).loadNibNamed(String(describing: T.self), owner: nil, options: nil)![0] as! T
+    }
 }

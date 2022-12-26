@@ -109,6 +109,9 @@
 		AA51BA6928DAFFAC003D4F33 /* ContentNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA51BA6828DAFFAC003D4F33 /* ContentNavigationViewController.swift */; };
 		AA51BA6B28DB0030003D4F33 /* NavigationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA51BA6A28DB0030003D4F33 /* NavigationHelper.swift */; };
 		AA51BAD328DB1102003D4F33 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA51BAD228DB1102003D4F33 /* DetailsViewController.swift */; };
+		AAAA88972959B2DD0047960B /* CommanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA88962959B2DD0047960B /* CommanViewController.swift */; };
+		AAAA88992959B2EC0047960B /* NoInternetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA88982959B2EC0047960B /* NoInternetViewController.swift */; };
+		AAAA889B2959B30F0047960B /* NoInternetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAAA889A2959B30F0047960B /* NoInternetView.xib */; };
 		E77DBC720AB70EEDD4CF240E /* Pods_JASafeDemoVTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7631B8D0808FB1D2C66927B /* Pods_JASafeDemoVTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -251,6 +254,9 @@
 		AA51BA6828DAFFAC003D4F33 /* ContentNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentNavigationViewController.swift; sourceTree = "<group>"; };
 		AA51BA6A28DB0030003D4F33 /* NavigationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHelper.swift; sourceTree = "<group>"; };
 		AA51BAD228DB1102003D4F33 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		AAAA88962959B2DD0047960B /* CommanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommanViewController.swift; sourceTree = "<group>"; };
+		AAAA88982959B2EC0047960B /* NoInternetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoInternetViewController.swift; sourceTree = "<group>"; };
+		AAAA889A2959B30F0047960B /* NoInternetView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoInternetView.xib; sourceTree = "<group>"; };
 		C7A1FBC9571A98555EB69410 /* Pods-JASafeDemoV.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JASafeDemoV.debug.xcconfig"; path = "Target Support Files/Pods-JASafeDemoV/Pods-JASafeDemoV.debug.xcconfig"; sourceTree = "<group>"; };
 		D9D511ADFE3C8AD716B1B12E /* Pods-PENNFoodSafety.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PENNFoodSafety.debug.xcconfig"; path = "Target Support Files/Pods-PENNFoodSafety/Pods-PENNFoodSafety.debug.xcconfig"; sourceTree = "<group>"; };
 		DAFA3BA2FF472CF933D1528C /* Pods-PENNFoodSafety-PENNFoodSafetyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PENNFoodSafety-PENNFoodSafetyUITests.release.xcconfig"; path = "Target Support Files/Pods-PENNFoodSafety-PENNFoodSafetyUITests/Pods-PENNFoodSafety-PENNFoodSafetyUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -396,6 +402,9 @@
 		A56941DF28A371BE00A5476B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				AAAA889A2959B30F0047960B /* NoInternetView.xib */,
+				AAAA88982959B2EC0047960B /* NoInternetViewController.swift */,
+				AAAA88962959B2DD0047960B /* CommanViewController.swift */,
 				3FFBE6142924B5A400AEAD7E /* JAGraphViewController.swift */,
 				AA2E6E0B28FC083B005CB087 /* AlarmsViewController.swift */,
 				A5522483291A2438007FCDF1 /* AlarmDetailViewController.swift */,
@@ -728,6 +737,7 @@
 				A54AB4A928D30D3B00594662 /* refrigerationIcon.png in Resources */,
 				A54AB4A228D0572500594662 /* RefrigerationCollectionViewCell.xib in Resources */,
 				3FC9684028DF3F860016D5BB /* FSMenu.plist in Resources */,
+				AAAA889B2959B30F0047960B /* NoInternetView.xib in Resources */,
 				3FFBE60F2924B4F400AEAD7E /* DataCaloriesIn.json in Resources */,
 				AA2E6E0828FC07B0005CB087 /* Cabinet.storyboard in Resources */,
 				A5B9B5AB2878464400D8F662 /* Assets.xcassets in Resources */,
@@ -879,6 +889,7 @@
 				AA2E6E2F28FC278D005CB087 /* CabinetViewModel.swift in Sources */,
 				A54AB4A728D2DEA800594662 /* DashBoardModel.swift in Sources */,
 				A56941CB289A775E00A5476B /* FSConstants.swift in Sources */,
+				AAAA88992959B2EC0047960B /* NoInternetViewController.swift in Sources */,
 				A5B9AADB28B5205500C77C01 /* SideMenuModel.swift in Sources */,
 				AA2E6E2728FC088B005CB087 /* CabinetsModel.swift in Sources */,
 				A5522491291BC40A007FCDF1 /* ResolveReasonAPI.swift in Sources */,
@@ -894,6 +905,7 @@
 				AA2E6E0628FC054A005CB087 /* SlideMenuController.swift in Sources */,
 				A5B9AAE528B5245B00C77C01 /* DashBoardViewController.swift in Sources */,
 				A552248D291BBD1A007FCDF1 /* ResolvedReasonModel.swift in Sources */,
+				AAAA88972959B2DD0047960B /* CommanViewController.swift in Sources */,
 				A5DF611028ACB61A000B74B2 /* AuthenticationResponse.swift in Sources */,
 				A56941D928A36EE100A5476B /* APILoader.swift in Sources */,
 				A58E5EAB28CEEB3E002621C5 /* FSApplicationConfig.swift in Sources */,
