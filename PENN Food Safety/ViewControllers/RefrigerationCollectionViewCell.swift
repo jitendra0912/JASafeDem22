@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SVGKit
 
 class RefrigerationCollectionViewCell: UICollectionViewCell {
 
@@ -23,4 +24,27 @@ class RefrigerationCollectionViewCell: UICollectionViewCell {
         refrigerationLabel.text = refrigerationData.title
     }
 
+}
+
+class RefrigerationCellDynamic: UICollectionViewCell {
+    @IBOutlet weak var refrigerationImageView: UIImageView!
+    @IBOutlet weak var refrigerationLabel: UILabel!
+    
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+    
+    func setup(with refrigerationData: SideMenuModel) {
+       // refrigerationImageView.image = refrigerationData.icon
+        
+        if let imagData =  refrigerationData.icon {
+          let mySVGImage: SVGKImage = SVGKImage(contentsOf: URL(string: imagData))
+            refrigerationImageView.image = mySVGImage.uiImage
+          }
+        
+        
+        refrigerationLabel.text = refrigerationData.title
+    }
 }

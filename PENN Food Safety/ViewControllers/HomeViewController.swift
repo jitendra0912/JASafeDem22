@@ -11,6 +11,8 @@ class HomeViewController: BaseViewController {
     
     
     @IBOutlet var sideMenuBtn: UIBarButtonItem!
+    var dynamicMenu: [SideMenuModel]?
+    
     @IBOutlet weak var refrigerationCollectionView: UICollectionView!
     
     fileprivate static let refrigerationDetailIdentifier = "RefrigerationViewController"
@@ -28,7 +30,7 @@ class HomeViewController: BaseViewController {
 //        self.view.backgroundColor = UIColor.blue
         //self.navigationController?.popToRootViewController(animated: true)
         
-        refrigerationCollectionView.register(UINib.init(nibName: "RefrigerationCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
+      //  refrigerationCollectionView.register(UINib.init(nibName: "RefrigerationCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
         
         refrigerationCollectionView.delegate = self
         refrigerationCollectionView.dataSource = self
@@ -54,20 +56,42 @@ class HomeViewController: BaseViewController {
 }
 
 extension HomeViewController: UICollectionViewDataSource {
-    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 2
+    }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return refrigerationData.count
-    }
+        if section == 0 {
+            return 1
+        }
+        
+        guard let item  = dynamicMenu else { return 0 }
+        return item.count
+        
+ 
+}
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? RefrigerationCollectionViewCell
-        cell?.setup(with: refrigerationData[indexPath.row])
-        
-        return cell!
-        
+        var dynamicCell: RefrigerationCellDynamic?
+        if indexPath.section == 0 {
+           let refrigerationStaticCell = collectionView.dequeueReusableCell(withReuseIdentifier: "RefrigerationCellStatic", for: indexPath) as? RefrigerationCollectionViewCell
+            refrigerationStaticCell?.setup(with: refrigerationData[indexPath.row])
+            return refrigerationStaticCell!
+            
+        }
+        if let item = dynamicMenu {
+             dynamicCell = collectionView.dequeueReusableCell(withReuseIdentifier: "RefrigerationCellDynamic", for: indexPath) as? RefrigerationCellDynamic
+            dynamicCell!.setup(with: item[indexPath.row])
+       
+            
+            
+        }
+        return dynamicCell!
     }
+       
+        
+        
+    
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {

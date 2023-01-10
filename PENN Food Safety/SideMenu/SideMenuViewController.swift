@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 import UIKit
 
@@ -19,6 +20,7 @@ class SideMenuViewController: UIViewController {
     @IBOutlet var footerLabel: UILabel!
     var viewControllerClass: AnyClass!
     var slideMenu =  [SideMenuModel]()
+    var _dynamicMenu =  [SideMenuModel]()
    // var model: MenuViewModel?
     var delegate: SideMenuViewControllerDelegate?
     var defaultHighlightedCell: Int = 0
@@ -120,12 +122,17 @@ extension SideMenuViewController: UITableViewDataSource {
             }
         
         else {
-            let commVC = FSConstants.Storyboard.mainStoryboard.instantiateViewController(withIdentifier: String(describing: CommanViewController.self)) as! CommanViewController
+           // let commVC = FSConstants.Storyboard.mainStoryboard.instantiateViewController(withIdentifier: String(describing: CommanViewController.self)) as! CommanViewController
             
-            let objSideMenu = self.slideMenu[indexPath.row] 
-            commVC.titleName = objSideMenu.title
+            let commVC = CommonViewController()
+           let host = UIHostingController(rootView: commVC)
+            NavigationHelper.helper.contentNavController!.pushViewController(host, animated: true)
             
-            NavigationHelper.helper.contentNavController!.pushViewController(commVC, animated: true)
+            
+//            let objSideMenu = self.slideMenu[indexPath.row]
+//            commVC.titleName = objSideMenu.title
+            
+          //  NavigationHelper.helper.contentNavController!.pushViewController(commVC, animated: true)
 
             // push comman vc
         }
@@ -143,6 +150,7 @@ extension SideMenuViewController {
         if (viewController.isKind(of: HomeViewController.self)) {
             
             let dashVC = FSConstants.Storyboard.mainStoryboard.instantiateViewController(withIdentifier: String(describing: HomeViewController.self)) as! HomeViewController
+            dashVC.dynamicMenu = _dynamicMenu
             NavigationHelper.helper.contentNavController!.pushViewController(dashVC, animated: true)
             //   NavigationHelper.helper.contentNavController?.popToRootViewController(animated: true)
         }
@@ -162,6 +170,7 @@ extension SideMenuViewController {
         /// Dynamic Mneu
         for item in self.moduleLogViewModel {
             let dyObjct =  SideMenuModel(icon: item.moduleLogo!, title: item.moduleName!, storyboard: "Main", controller: "commanController")
+            _dynamicMenu.append(dyObjct)
             slideMenu.append(dyObjct)
         }
         (FSHelper.share.loadSlideMenu(forResource: "FSMenu") as? [AnyObject])!.enumerated().forEach { (index, element) in

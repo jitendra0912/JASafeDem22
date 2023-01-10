@@ -109,6 +109,11 @@
 		AA51BA6928DAFFAC003D4F33 /* ContentNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA51BA6828DAFFAC003D4F33 /* ContentNavigationViewController.swift */; };
 		AA51BA6B28DB0030003D4F33 /* NavigationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA51BA6A28DB0030003D4F33 /* NavigationHelper.swift */; };
 		AA51BAD328DB1102003D4F33 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA51BAD228DB1102003D4F33 /* DetailsViewController.swift */; };
+		AA99B956296DC92B008B888D /* SearchViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA99B953296DC92B008B888D /* SearchViewComponent.swift */; };
+		AA99B957296DC92B008B888D /* CommonItemComponet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA99B954296DC92B008B888D /* CommonItemComponet.swift */; };
+		AA99B958296DC92B008B888D /* CommonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA99B955296DC92B008B888D /* CommonViewController.swift */; };
+		AA99B95A296DCA7E008B888D /* CommonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA99B959296DCA7E008B888D /* CommonModel.swift */; };
+		AA99B95C296DCB02008B888D /*  Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA99B95B296DCB02008B888D /*  Color.swift */; };
 		AAAA88972959B2DD0047960B /* CommanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA88962959B2DD0047960B /* CommanViewController.swift */; };
 		AAAA88992959B2EC0047960B /* NoInternetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA88982959B2EC0047960B /* NoInternetViewController.swift */; };
 		AAAA889B2959B30F0047960B /* NoInternetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAAA889A2959B30F0047960B /* NoInternetView.xib */; };
@@ -254,6 +259,11 @@
 		AA51BA6828DAFFAC003D4F33 /* ContentNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentNavigationViewController.swift; sourceTree = "<group>"; };
 		AA51BA6A28DB0030003D4F33 /* NavigationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHelper.swift; sourceTree = "<group>"; };
 		AA51BAD228DB1102003D4F33 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		AA99B953296DC92B008B888D /* SearchViewComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewComponent.swift; sourceTree = "<group>"; };
+		AA99B954296DC92B008B888D /* CommonItemComponet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonItemComponet.swift; sourceTree = "<group>"; };
+		AA99B955296DC92B008B888D /* CommonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonViewController.swift; sourceTree = "<group>"; };
+		AA99B959296DCA7E008B888D /* CommonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonModel.swift; sourceTree = "<group>"; };
+		AA99B95B296DCB02008B888D /*  Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = " Color.swift"; sourceTree = "<group>"; };
 		AAAA88962959B2DD0047960B /* CommanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommanViewController.swift; sourceTree = "<group>"; };
 		AAAA88982959B2EC0047960B /* NoInternetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoInternetViewController.swift; sourceTree = "<group>"; };
 		AAAA889A2959B30F0047960B /* NoInternetView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoInternetView.xib; sourceTree = "<group>"; };
@@ -368,6 +378,7 @@
 				A552248C291BBD1A007FCDF1 /* ResolvedReasonModel.swift */,
 				A552248E291BBF29007FCDF1 /* CorrectiveActionModel.swift */,
 				A503F0F729265194002FE06C /* GraphDataModel.swift */,
+				AA99B959296DCA7E008B888D /* CommonModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -476,6 +487,7 @@
 		A5B9B5A02878464200D8F662 /* PENN Food Safety */ = {
 			isa = PBXGroup;
 			children = (
+				AA99B952296DC92B008B888D /* SwiftUIComponents */,
 				AA2E6E3028FC27C8005CB087 /* Cell */,
 				AA2E6E2D28FC26EE005CB087 /* Utility */,
 				AA2E6E2C28FC2678005CB087 /* Model */,
@@ -597,6 +609,7 @@
 		AA2E6E2D28FC26EE005CB087 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				AA99B95B296DCB02008B888D /*  Color.swift */,
 				3FFBE6102924B58B00AEAD7E /* Highcharts.xcframework */,
 				3FFBE6122924B59900AEAD7E /* OptionsProvider.swift */,
 				3FFBE60C2924B4F400AEAD7E /* DataCaloriesIn.json */,
@@ -620,6 +633,16 @@
 				A5728C86291E83510053BF9B /* CorrectiveActionTableViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		AA99B952296DC92B008B888D /* SwiftUIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				AA99B953296DC92B008B888D /* SearchViewComponent.swift */,
+				AA99B954296DC92B008B888D /* CommonItemComponet.swift */,
+				AA99B955296DC92B008B888D /* CommonViewController.swift */,
+			);
+			path = SwiftUIComponents;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -887,6 +910,7 @@
 				A56941C3289A709D00A5476B /* ReachabilityManager.swift in Sources */,
 				A5B9AAE328B5223300C77C01 /* HomeViewController.swift in Sources */,
 				AA2E6E2F28FC278D005CB087 /* CabinetViewModel.swift in Sources */,
+				AA99B95C296DCB02008B888D /*  Color.swift in Sources */,
 				A54AB4A728D2DEA800594662 /* DashBoardModel.swift in Sources */,
 				A56941CB289A775E00A5476B /* FSConstants.swift in Sources */,
 				AAAA88992959B2EC0047960B /* NoInternetViewController.swift in Sources */,
@@ -901,6 +925,8 @@
 				A5D31526293FA8D600AEAD07 /* ModuleAPI.swift in Sources */,
 				A5B9AAE728B5247C00C77C01 /* SyncViewController.swift in Sources */,
 				A56941D528A36EAF00A5476B /* RequestHandler+Extension.swift in Sources */,
+				AA99B95A296DCA7E008B888D /* CommonModel.swift in Sources */,
+				AA99B957296DC92B008B888D /* CommonItemComponet.swift in Sources */,
 				A5B4787928D9B1D300C4A781 /* JSMessageHandler.swift in Sources */,
 				AA2E6E0628FC054A005CB087 /* SlideMenuController.swift in Sources */,
 				A5B9AAE528B5245B00C77C01 /* DashBoardViewController.swift in Sources */,
@@ -918,6 +944,7 @@
 				AA2E6E0E28FC083B005CB087 /* AlarmsViewController.swift in Sources */,
 				AA2E6E2B28FC0891005CB087 /* JASearchBar.swift in Sources */,
 				A5E448DD28FADDB0005EB93E /* AlarmModel.swift in Sources */,
+				AA99B956296DC92B008B888D /* SearchViewComponent.swift in Sources */,
 				AA2E6E3828FC2E67005CB087 /* CodableHelper.swift in Sources */,
 				A5728C80291E0C5E0053BF9B /* CorrectiveActionAPI.swift in Sources */,
 				AA2E6E0C28FC083B005CB087 /* CabinetsViewController.swift in Sources */,
@@ -938,6 +965,7 @@
 				A58E5EB328CEEC68002621C5 /* JAWebView.swift in Sources */,
 				A552248B291B890A007FCDF1 /* AlarmReasonViewModel.swift in Sources */,
 				A5E448E528FB234A005EB93E /* AlarmAPI.swift in Sources */,
+				AA99B958296DC92B008B888D /* CommonViewController.swift in Sources */,
 				A56941D728A36EC800A5476B /* ResponseHandler+Extension.swift in Sources */,
 				AA2E6E1128FC0882005CB087 /* AlarmsTableViewCell.swift in Sources */,
 				A5B4787B28D9B1FF00C4A781 /* FSHelper.swift in Sources */,
