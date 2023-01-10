@@ -60,33 +60,38 @@ extension HomeViewController: UICollectionViewDataSource {
         return 2
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
         if section == 0 {
-            return 1
+            guard let item  = dynamicMenu else { return 0 }
+             return item.count
         }
+        return 1
+    
         
-        guard let item  = dynamicMenu else { return 0 }
-        return item.count
+       
         
  
 }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        var dynamicCell: RefrigerationCellDynamic?
+        var cell: RefrigerationCollectionViewCell?
         if indexPath.section == 0 {
-           let refrigerationStaticCell = collectionView.dequeueReusableCell(withReuseIdentifier: "RefrigerationCellStatic", for: indexPath) as? RefrigerationCollectionViewCell
-            refrigerationStaticCell?.setup(with: refrigerationData[indexPath.row])
-            return refrigerationStaticCell!
+            if let item = dynamicMenu {
+                 let dynamicCell = collectionView.dequeueReusableCell(withReuseIdentifier: "RefrigerationCellDynamic", for: indexPath) as? RefrigerationCellDynamic
+                dynamicCell!.setup(with: item[indexPath.row])
+           
+                return dynamicCell!
+                
+            }
+        }
+        
+        else {
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RefrigerationCellStatic", for: indexPath) as? RefrigerationCollectionViewCell
+            cell?.setup(with: refrigerationData[indexPath.row])
+          
+             
             
         }
-        if let item = dynamicMenu {
-             dynamicCell = collectionView.dequeueReusableCell(withReuseIdentifier: "RefrigerationCellDynamic", for: indexPath) as? RefrigerationCellDynamic
-            dynamicCell!.setup(with: item[indexPath.row])
-       
-            
-            
-        }
-        return dynamicCell!
+        return cell!
     }
        
         
